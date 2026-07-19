@@ -1,18 +1,21 @@
-// 1. Dichiariamo le variabili (usiamo i famosi 44 gatti in fila per 6!)
-let totaleGatti = 44;
-let gattiInFila = 6;
+let totaleGatti = 44; // Puoi cambiare questo numero per fare delle prove
+let gattiInFila = 6;  // Puoi cambiare anche questo
 
-// 2. Calcoliamo il numero di file intere.
-// Math.floor() arrotonda per difetto il risultato della divisione, eliminando i decimali.
-let numeroFile = Math.floor(totaleGatti / gattiInFila);
-
-// 3. Calcoliamo l'avanzo (i gatti che restano fuori) usando l'operatore modulo (%)
-// Il modulo ci restituisce esattamente il "resto" di una divisione.
+// 1. Troviamo quanti gatti rimangono fuori usando l'operatore modulo (%)
+// Il modulo ci restituisce il resto della divisione
 let avanzo = totaleGatti % gattiInFila;
+// 2. Calcoliamo il numero di file
+// Sottraendo l'avanzo dal totale, otteniamo un numero perfettamente divisibile.
+// In questo modo non abbiamo bisogno di usare Math.floor() per arrotondare.
+let numeroFile = (totaleGatti - avanzo) / gattiInFila;
 
-// 4. Calcoliamo quanti gatti mancano per completare una nuova fila.
-// Se l'avanzo è 0, significa che non mancano gatti, altrimenti sottraiamo l'avanzo alla dimensione della fila.
-let mancanti = avanzo === 0 ? 0 : gattiInFila - avanzo;
+// 3. Calcoliamo quanti gatti mancano per una nuova fila
+let gattiMancanti = gattiInFila - avanzo;
 
-// 5. Stampiamo in console la frase richiesta con i template literal
-console.log(`Ci sono ${numeroFile} file di gatti e ne mancano ${mancanti} per una nuova fila, con un avanzo di ${avanzo}`);
+// Gestiamo il caso in cui i gatti formino file perfette senza avanzi
+if (avanzo === 0) {
+    gattiMancanti = 0;
+}
+
+// 4. Stampiamo in console usando la concatenazione classica con il +
+console.log("Ci sono " + numeroFile + " file di gatti e ne mancano " + gattiMancanti + " per una nuova fila, con un avanzo di " + avanzo);
