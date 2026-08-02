@@ -1,21 +1,22 @@
-// 1. Dichiariamo le variabili
-let totaleGatti = 44;
-let gattiInFila = 6;
+// Dichiariamo le variabili
+var totaleGatti = 44;
+var gattiInFila = 6;
 
-// 2. Calcoliamo il numero di file intere
-let numeroFile = Math.floor(totaleGatti / gattiInFila);
+// Calcoliamo quante file intere ci sono (arrotondando per difetto)
+var numeroFile = Math.floor(totaleGatti / gattiInFila);
 
-// 3. Calcoliamo l'avanzo (i gatti che restano fuori)
-let avanzo = totaleGatti % gattiInFila;
+// Calcoliamo quanti gatti restano fuori
+var avanzo = totaleGatti % gattiInFila;
 
-// 4. Calcoliamo quanti gatti mancano usando un costrutto if/else classico
-let mancanti;
+// Variabile nuova per i gatti mancanti
+var mancanti;
 
+// Usiamo un costrutto if/else tradizionale
 if (avanzo === 0) {
     mancanti = 0;
 } else {
     mancanti = gattiInFila - avanzo;
 }
 
-// 5. Stampiamo in console con la concatenazione classica (simbolo +)
+// Stampiamo il risultato 
 console.log("Ci sono " + numeroFile + " file di gatti e ne mancano " + mancanti + " per una nuova fila, con un avanzo di " + avanzo);
